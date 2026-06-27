@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Stacks de fonte sem dependência externa (build rápido e offline-friendly).
+     Para usar uma fonte custom, troque aqui ou adicione next/font. */
+  --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Sora", "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-ink-500/60;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-950 text-slate-200 antialiased;
+    background-image:
+      radial-gradient(
+        circle at 15% -10%,
+        rgba(59, 155, 255, 0.12),
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 85% 0%,
+        rgba(43, 255, 155, 0.08),
+        transparent 40%
+      );
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight text-white;
+  }
+
+  ::selection {
+    @apply bg-neon/30 text-white;
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .surface {
+    @apply rounded-2xl border border-ink-500/70 bg-ink-800/70 backdrop-blur-sm;
+  }
+
+  .glass {
+    @apply border border-white/[0.06] bg-white/[0.03] backdrop-blur-xl;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-ink-500/70 bg-ink-700/60 px-3 py-1 text-xs font-medium text-slate-300;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon/50 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-primary {
+    @apply btn bg-gradient-to-r from-neon to-neon-dim text-ink-950 shadow-glow hover:brightness-110 active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply btn border border-ink-400/70 bg-ink-700/40 text-slate-100 hover:border-neon/50 hover:bg-ink-600/50;
+  }
+
+  .btn-ghost {
+    @apply btn text-slate-300 hover:bg-white/5 hover:text-white;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-ink-500/80 bg-ink-900/70 px-4 py-3 text-sm text-white placeholder:text-slate-500 transition-colors focus:border-neon/60 focus:outline-none focus:ring-2 focus:ring-neon/20;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent;
+  }
+
+  .neon-text {
+    @apply bg-gradient-to-r from-neon-soft to-electric-soft bg-clip-text text-transparent;
+  }
+}
+
+/* Scrollbar discreta */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #080b10;
+}
+::-webkit-scrollbar-thumb {
+  background: #1d2530;
+  border-radius: 999px;
+  border: 2px solid #080b10;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a3441;
+}
+
+/* Efeito shimmer para skeletons */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.06),
+    transparent
+  );
+  animation: shimmer 1.6s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
