@@ -21,10 +21,10 @@ export function PolicyLayout({ title, intro, updatedAt, sections }: Props) {
         <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-neon-soft">
           <ShieldIcon /> Documento legal
         </div>
-        <h1 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+        <h1 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
           {title}
         </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-400">
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600">
           {intro}
         </p>
         <p className="mt-2 text-xs text-slate-500">
@@ -42,7 +42,7 @@ export function PolicyLayout({ title, intro, updatedAt, sections }: Props) {
                 <a
                   key={s.title}
                   href={`#sec-${i}`}
-                  className="block rounded-lg px-3 py-1.5 text-sm text-slate-400 transition-colors hover:bg-white/5 hover:text-white"
+                  className="block rounded-lg px-3 py-1.5 text-sm text-slate-600 transition-colors hover:bg-white/5 hover:text-slate-900"
                 >
                   {s.title}
                 </a>
@@ -54,13 +54,13 @@ export function PolicyLayout({ title, intro, updatedAt, sections }: Props) {
           <article className="space-y-8">
             {sections.map((s, i) => (
               <section key={s.title} id={`sec-${i}`} className="scroll-mt-24">
-                <h2 className="flex items-baseline gap-2 text-lg font-semibold text-white">
+                <h2 className="flex items-baseline gap-2 text-lg font-semibold text-slate-900">
                   <span className="text-sm font-bold text-neon-soft">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   {s.title}
                 </h2>
-                <div className="mt-3 space-y-3 text-sm leading-relaxed text-slate-400 [&_a]:text-neon-soft [&_a:hover]:underline [&_li]:ml-4 [&_li]:list-disc">
+                <div className="mt-3 space-y-3 text-sm leading-relaxed text-slate-600 [&_a]:text-neon-soft [&_a:hover]:underline [&_li]:ml-4 [&_li]:list-disc">
                   {s.body}
                 </div>
               </section>

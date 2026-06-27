@@ -23,10 +23,10 @@ export default function ContatoPage() {
         <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-neon-soft">
           <SparkIcon /> Fale conosco
         </span>
-        <h1 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+        <h1 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">
           Registre seu interesse
         </h1>
-        <p className="mt-3 text-sm leading-relaxed text-slate-400">
+        <p className="mt-3 text-sm leading-relaxed text-slate-600">
           Conte qual modelo chamou sua atenção e o que você procura. Nossa
           curadoria retorna com informações, disponibilidade e uma simulação
           comercial sob medida.
@@ -44,7 +44,7 @@ export default function ContatoPage() {
 
         <aside className="space-y-4">
           <div className="surface p-6">
-            <h2 className="text-lg font-semibold text-white">
+            <h2 className="text-lg font-semibold text-slate-900">
               Canais de atendimento
             </h2>
             <ul className="mt-4 space-y-4">
@@ -57,7 +57,7 @@ export default function ContatoPage() {
                     <p className="text-[11px] uppercase tracking-wider text-slate-500">
                       {c.label}
                     </p>
-                    <p className="text-sm font-medium text-white">{c.value}</p>
+                    <p className="text-sm font-medium text-slate-900">{c.value}</p>
                   </div>
                 </li>
               ))}
@@ -65,25 +65,25 @@ export default function ContatoPage() {
           </div>
 
           <div className="surface p-6">
-            <h2 className="text-lg font-semibold text-white">Horários</h2>
-            <ul className="mt-3 space-y-1.5 text-sm text-slate-400">
+            <h2 className="text-lg font-semibold text-slate-900">Horários</h2>
+            <ul className="mt-3 space-y-1.5 text-sm text-slate-600">
               <li className="flex justify-between">
                 <span>Segunda a sexta</span>
-                <span className="text-slate-200">9h – 19h</span>
+                <span className="text-slate-800">9h – 19h</span>
               </li>
               <li className="flex justify-between">
                 <span>Sábado</span>
-                <span className="text-slate-200">9h – 14h</span>
+                <span className="text-slate-800">9h – 14h</span>
               </li>
               <li className="flex justify-between">
                 <span>Domingo</span>
-                <span className="text-slate-200">Fechado</span>
+                <span className="text-slate-800">Fechado</span>
               </li>
             </ul>
           </div>
 
           <div className="surface bg-gradient-to-br from-neon/10 to-electric/5 p-6">
-            <p className="text-sm leading-relaxed text-slate-300">
+            <p className="text-sm leading-relaxed text-slate-700">
               Atendimento consultivo e sem compromisso. Este é um protótipo — o
               envio é simulado e nenhum dado é realmente transmitido.
             </p>

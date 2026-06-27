@@ -21,11 +21,11 @@ export function Hero() {
           <span className="chip border-neon/30 bg-neon/10 text-neon-soft">
             <SparkIcon /> Curadoria automotiva premium
           </span>
-          <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
             O futuro da mobilidade,
             <span className="block neon-text">selecionado para você.</span>
           </h1>
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-400">
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600">
             Uma vitrine de veículos elétricos, híbridos e de performance das
             principais montadoras. Compare, favorite e descubra ficha técnica
             completa — tudo em uma experiência rápida e elegante.
@@ -43,8 +43,8 @@ export function Hero() {
           <dl className="mt-10 grid max-w-md grid-cols-3 gap-4">
             {stats.map((s) => (
               <div key={s.label} className="surface px-4 py-3">
-                <dt className="text-2xl font-bold text-white">{s.value}</dt>
-                <dd className="text-xs text-slate-400">{s.label}</dd>
+                <dt className="text-2xl font-bold text-slate-900">{s.value}</dt>
+                <dd className="text-xs text-slate-600">{s.label}</dd>
               </div>
             ))}
           </dl>
@@ -70,10 +70,10 @@ export function Hero() {
             </div>
             <div className="flex items-end justify-between gap-4 p-5">
               <div>
-                <p className="text-xs uppercase tracking-wider text-slate-400">
+                <p className="text-xs uppercase tracking-wider text-slate-600">
                   {showcase.brandName} · {showcase.category}
                 </p>
-                <h3 className="text-xl font-bold text-white">
+                <h3 className="text-xl font-bold text-slate-900">
                   {showcase.model}
                 </h3>
                 <p className="mt-1 text-sm text-neon-soft">
@@ -96,8 +96,8 @@ export function Hero() {
               <ShieldIcon />
             </span>
             <div>
-              <p className="text-xs font-semibold text-white">Garantia premium</p>
-              <p className="text-[11px] text-slate-400">8 anos na bateria</p>
+              <p className="text-xs font-semibold text-slate-900">Garantia premium</p>
+              <p className="text-[11px] text-slate-600">8 anos na bateria</p>
             </div>
           </div>
         </div>

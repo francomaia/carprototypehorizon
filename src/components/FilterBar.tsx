@@ -43,7 +43,7 @@ export function FilterBar({ filter, onFilter, sort, onSort }: Props) {
               "shrink-0 rounded-full border px-4 py-1.5 text-sm font-medium transition-all",
               filter === f
                 ? "border-neon/50 bg-neon/10 text-neon-soft"
-                : "border-ink-500/70 bg-ink-700/40 text-slate-300 hover:border-ink-400 hover:text-white",
+                : "border-ink-500/70 bg-ink-700/40 text-slate-700 hover:border-ink-400 hover:text-slate-900",
             )}
           >
             {f}
@@ -56,7 +56,7 @@ export function FilterBar({ filter, onFilter, sort, onSort }: Props) {
           value={sort}
           onChange={(e) => onSort(e.target.value as SortOption)}
           aria-label="Ordenar veículos"
-          className="appearance-none rounded-xl border border-ink-500/80 bg-ink-900/70 py-2.5 pl-4 pr-10 text-sm font-medium text-white transition-colors hover:border-ink-400 focus:border-neon/60 focus:outline-none"
+          className="appearance-none rounded-xl border border-ink-500/80 bg-ink-900/70 py-2.5 pl-4 pr-10 text-sm font-medium text-slate-900 transition-colors hover:border-ink-400 focus:border-neon/60 focus:outline-none"
         >
           {(Object.keys(SORT_LABELS) as SortOption[]).map((opt) => (
             <option key={opt} value={opt} className="bg-ink-900">
@@ -64,7 +64,7 @@ export function FilterBar({ filter, onFilter, sort, onSort }: Props) {
             </option>
           ))}
         </select>
-        <ChevronDownIcon className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-base text-slate-400" />
+        <ChevronDownIcon className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-base text-slate-600" />
       </div>
     </div>
   );

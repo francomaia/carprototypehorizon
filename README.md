@@ -113,10 +113,18 @@ imagem automaticamente.
 Edite **`src/lib/site.ts`** (nome, slogan, e-mail, telefone, endereço e a logo
 principal usada no header/footer).
 
-### Cores e identidade visual
+### Cores, fonte e identidade visual
 
-Ajuste a paleta (neon, electric, tons de grafite) em **`tailwind.config.ts`** e
-os estilos globais em **`src/app/globals.css`**.
+Tema **claro** (branco/cinza) com acento **vermelho**, fonte **Manrope**
+(`next/font/google`) e fundo branco com **degradê de cinza animado**.
+
+- Paleta em **`tailwind.config.ts`** — por compatibilidade os nomes foram
+  mantidos: `neon` = acento primário (vermelho), `electric` = secundário (azul),
+  `ink` = superfícies/bordas claras.
+- Estilos globais (fundo animado, botões, inputs, cartões) em
+  **`src/app/globals.css`**.
+- Fonte trocável no **`src/app/layout.tsx`** (`Manrope` → outra família do
+  `next/font`).
 
 ## 🔐 Login de demonstração
 

@@ -28,8 +28,8 @@ export function CarGrid({
           <SparkIcon />
         </span>
         <div>
-          <h3 className="text-lg font-semibold text-white">{emptyTitle}</h3>
-          <p className="mx-auto mt-1 max-w-sm text-sm text-slate-400">
+          <h3 className="text-lg font-semibold text-slate-900">{emptyTitle}</h3>
+          <p className="mx-auto mt-1 max-w-sm text-sm text-slate-600">
             {emptyHint}
           </p>
         </div>

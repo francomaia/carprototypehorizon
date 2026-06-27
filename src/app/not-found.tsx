@@ -7,11 +7,11 @@ export default function NotFound() {
       <span className="grid h-16 w-16 place-items-center rounded-2xl border border-neon/30 bg-neon/10 text-3xl text-neon">
         <BoltIcon />
       </span>
-      <p className="mt-6 font-display text-6xl font-bold text-white">404</p>
-      <h1 className="mt-2 text-2xl font-semibold text-white">
+      <p className="mt-6 font-display text-6xl font-bold text-slate-900">404</p>
+      <h1 className="mt-2 text-2xl font-semibold text-slate-900">
         Página não encontrada
       </h1>
-      <p className="mx-auto mt-2 max-w-md text-sm text-slate-400">
+      <p className="mx-auto mt-2 max-w-md text-sm text-slate-600">
         O endereço que você procura não existe ou foi movido. Que tal voltar ao
         catálogo e descobrir seu próximo veículo?
       </p>

@@ -65,7 +65,7 @@ export function LoginModal() {
           exit={{ opacity: 0 }}
         >
           <div
-            className="absolute inset-0 bg-ink-950/80 backdrop-blur-sm"
+            className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"
             onClick={closeLogin}
           />
           <motion.div
@@ -86,7 +86,7 @@ export function LoginModal() {
               type="button"
               onClick={closeLogin}
               aria-label="Fechar"
-              className="absolute right-4 top-4 z-10 grid h-9 w-9 place-items-center rounded-full text-slate-400 hover:bg-white/5 hover:text-white"
+              className="absolute right-4 top-4 z-10 grid h-9 w-9 place-items-center rounded-full text-slate-600 hover:bg-white/5 hover:text-slate-900"
             >
               <CloseIcon className="text-lg" />
             </button>
@@ -101,10 +101,10 @@ export function LoginModal() {
                   className="h-10 w-10 rounded-lg object-contain"
                 />
                 <div>
-                  <h2 className="text-lg font-bold text-white">
+                  <h2 className="text-lg font-bold text-slate-900">
                     Entrar na {site.name}
                   </h2>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-slate-600">
                     Salve favoritos e acompanhe seus interesses
                   </p>
                 </div>
@@ -114,7 +114,7 @@ export function LoginModal() {
                 <div>
                   <label
                     htmlFor="login-email"
-                    className="mb-1.5 block text-xs font-medium text-slate-300"
+                    className="mb-1.5 block text-xs font-medium text-slate-700"
                   >
                     E-mail
                   </label>
@@ -131,7 +131,7 @@ export function LoginModal() {
                 <div>
                   <label
                     htmlFor="login-password"
-                    className="mb-1.5 block text-xs font-medium text-slate-300"
+                    className="mb-1.5 block text-xs font-medium text-slate-700"
                   >
                     Senha
                   </label>
@@ -152,7 +152,7 @@ export function LoginModal() {
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
-                      className="rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 text-xs text-red-300"
+                      className="rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 text-xs text-red-600"
                     >
                       {error}
                     </motion.p>
@@ -180,7 +180,7 @@ export function LoginModal() {
               <button
                 type="button"
                 onClick={fillDemo}
-                className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-lg border border-dashed border-ink-400/60 bg-ink-700/30 py-2.5 text-xs text-slate-400 transition-colors hover:border-neon/40 hover:text-neon-soft"
+                className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-lg border border-dashed border-ink-400/60 bg-ink-700/30 py-2.5 text-xs text-slate-600 transition-colors hover:border-neon/40 hover:text-neon-soft"
               >
                 <BoltIcon /> Preencher credenciais de demonstração
               </button>

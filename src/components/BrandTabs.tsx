@@ -62,8 +62,8 @@ function TabButton({
       className={cn(
         "relative flex shrink-0 items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-semibold transition-colors",
         active
-          ? "border-neon/40 text-white"
-          : "border-ink-500/60 text-slate-400 hover:border-ink-400 hover:text-white",
+          ? "border-neon/40 text-slate-900"
+          : "border-ink-500/60 text-slate-600 hover:border-ink-400 hover:text-slate-900",
       )}
     >
       {active && (
@@ -78,7 +78,7 @@ function TabButton({
       <span
         className={cn(
           "rounded-full px-1.5 py-0.5 text-[10px] font-bold",
-          active ? "bg-neon/20 text-neon-soft" : "bg-ink-600/70 text-slate-400",
+          active ? "bg-neon/20 text-neon-soft" : "bg-ink-600/70 text-slate-600",
         )}
       >
         {count}

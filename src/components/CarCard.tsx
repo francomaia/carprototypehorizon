@@ -39,7 +39,7 @@ export function CarCard({ car, index = 0 }: Props) {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink-900/80 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/15 via-transparent to-transparent" />
 
         {/* selo de categoria */}
         <span className="absolute left-3 top-3 rounded-full border border-white/10 bg-black/55 px-3 py-1 text-[11px] font-medium text-white/90 backdrop-blur-md">
@@ -62,7 +62,7 @@ export function CarCard({ car, index = 0 }: Props) {
       {/* conteúdo */}
       <div className="relative flex flex-1 flex-col gap-3 p-5">
         <div className="flex items-center justify-between gap-2">
-          <span className="text-xs font-medium uppercase tracking-wider text-slate-400">
+          <span className="text-xs font-medium uppercase tracking-wider text-slate-600">
             {car.brandName} · {car.year}
           </span>
           <span
@@ -76,32 +76,32 @@ export function CarCard({ car, index = 0 }: Props) {
         </div>
 
         <div className="flex items-start justify-between gap-2">
-          <h3 className="text-lg font-semibold leading-tight text-white">
+          <h3 className="text-lg font-semibold leading-tight text-slate-900">
             <Link
               href={`/carros/${car.slug}`}
-              className="after:absolute after:inset-0 after:content-[''] hover:text-neon-soft"
+              className="after:absolute after:inset-0 after:content-[''] hover:text-neon"
             >
               {car.model}
             </Link>
           </h3>
-          <span className="shrink-0 rounded-md bg-white/5 px-2 py-1 text-[11px] font-semibold text-slate-200 ring-1 ring-white/10">
+          <span className="shrink-0 rounded-md bg-slate-100 px-2 py-1 text-[11px] font-semibold text-slate-700 ring-1 ring-slate-200">
             {car.highlight}
           </span>
         </div>
 
-        <p className="line-clamp-2 text-sm text-slate-400">{car.summary}</p>
+        <p className="line-clamp-2 text-sm text-slate-600">{car.summary}</p>
 
         <div className="mt-auto flex items-end justify-between gap-3 pt-3">
           <div>
             <p className="text-[11px] uppercase tracking-wider text-slate-500">
               A partir de
             </p>
-            <p className="text-xl font-bold text-white">
+            <p className="text-xl font-bold text-slate-900">
               {formatBRL(car.price)}
             </p>
             <p className="text-[10px] text-slate-500">valor protótipo</p>
           </div>
-          <span className="relative z-10 inline-flex items-center gap-1.5 rounded-xl border border-ink-400/70 bg-ink-700/50 px-3.5 py-2.5 text-sm font-semibold text-slate-100 transition-colors group-hover:border-neon/50 group-hover:text-neon-soft">
+          <span className="relative z-10 inline-flex items-center gap-1.5 rounded-xl border border-ink-400/70 bg-ink-700/50 px-3.5 py-2.5 text-sm font-semibold text-slate-900 transition-colors group-hover:border-neon/50 group-hover:text-neon-soft">
             Ver detalhes
             <ArrowRightIcon className="transition-transform group-hover:translate-x-0.5" />
           </span>

@@ -52,7 +52,7 @@ export function SpecTable({ specs }: Props) {
             <p className="text-[11px] uppercase tracking-wider text-slate-500">
               {row.label}
             </p>
-            <p className="text-sm font-semibold text-white">{row.value}</p>
+            <p className="text-sm font-semibold text-slate-900">{row.value}</p>
           </div>
         </div>
       ))}

@@ -57,8 +57,8 @@ export function CompareBar() {
                   </span>
                 ))}
               </div>
-              <span className="text-sm text-slate-300">
-                <strong className="text-white">{count}</strong> para comparar
+              <span className="text-sm text-slate-700">
+                <strong className="text-slate-900">{count}</strong> para comparar
               </span>
               <button
                 type="button"
@@ -72,7 +72,7 @@ export function CompareBar() {
                 type="button"
                 onClick={clear}
                 aria-label="Limpar comparação"
-                className="grid h-9 w-9 place-items-center rounded-xl text-slate-400 hover:bg-white/5 hover:text-white"
+                className="grid h-9 w-9 place-items-center rounded-xl text-slate-600 hover:bg-slate-100 hover:text-slate-900"
               >
                 <CloseIcon />
               </button>
@@ -90,7 +90,7 @@ export function CompareBar() {
             exit={{ opacity: 0 }}
           >
             <div
-              className="absolute inset-0 bg-ink-950/80 backdrop-blur-sm"
+              className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"
               onClick={() => setOpen(false)}
             />
             <motion.div
@@ -101,14 +101,14 @@ export function CompareBar() {
               className="relative max-h-[88vh] w-full max-w-4xl overflow-auto rounded-t-2xl border border-ink-500/70 bg-ink-800/95 shadow-card backdrop-blur-xl sm:rounded-2xl"
             >
               <div className="sticky top-0 z-10 flex items-center justify-between border-b border-ink-500/60 bg-ink-800/95 px-5 py-4 backdrop-blur-xl">
-                <h3 className="flex items-center gap-2 text-base font-semibold text-white">
+                <h3 className="flex items-center gap-2 text-base font-semibold text-slate-900">
                   <ScaleIcon className="text-electric" /> Comparativo de veículos
                 </h3>
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
                   aria-label="Fechar"
-                  className="grid h-9 w-9 place-items-center rounded-full text-slate-400 hover:bg-white/5 hover:text-white"
+                  className="grid h-9 w-9 place-items-center rounded-full text-slate-600 hover:bg-slate-100 hover:text-slate-900"
                 >
                   <CloseIcon className="text-lg" />
                 </button>
@@ -140,7 +140,7 @@ export function CompareBar() {
                           </div>
                           <Link
                             href={`/carros/${c.slug}`}
-                            className="block text-left text-sm font-semibold leading-tight text-white hover:text-neon-soft"
+                            className="block text-left text-sm font-semibold leading-tight text-slate-900 hover:text-neon"
                           >
                             {c.brandName} {c.model}
                           </Link>
@@ -157,13 +157,13 @@ export function CompareBar() {
                         key={row.key}
                         className={i % 2 === 0 ? "bg-white/[0.02]" : ""}
                       >
-                        <td className="p-2 text-xs font-medium text-slate-400">
+                        <td className="p-2 text-xs font-medium text-slate-600">
                           {row.label}
                         </td>
                         {selected.map((c) => (
                           <td
                             key={c.id}
-                            className="p-2 text-sm font-medium text-slate-100"
+                            className="p-2 text-sm font-medium text-slate-900"
                           >
                             {c.specs[row.key]}
                           </td>

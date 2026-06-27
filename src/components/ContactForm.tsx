@@ -61,10 +61,10 @@ export function ContactForm() {
           <CheckIcon />
         </span>
         <div>
-          <h3 className="text-xl font-semibold text-white">
+          <h3 className="text-xl font-semibold text-slate-900">
             Recebemos seu interesse!
           </h3>
-          <p className="mx-auto mt-2 max-w-md text-sm text-slate-400">
+          <p className="mx-auto mt-2 max-w-md text-sm text-slate-600">
             Obrigado, {form.nome.split(" ")[0] || "tudo certo"}. Nossa equipe de
             curadoria vai analisar sua solicitação
             {form.modelo ? ` sobre o ${form.modelo}` : ""} e retornar pelo e-mail
@@ -192,7 +192,7 @@ function Field({
     <div>
       <label
         htmlFor={htmlFor}
-        className="mb-1.5 block text-xs font-medium text-slate-300"
+        className="mb-1.5 block text-xs font-medium text-slate-700"
       >
         {label}
       </label>

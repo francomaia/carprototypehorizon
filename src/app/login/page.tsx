@@ -65,18 +65,18 @@ export default function LoginPage() {
               height={48}
               className="h-12 w-12 rounded-xl object-contain"
             />
-            <h2 className="mt-6 text-3xl font-bold leading-tight text-white">
+            <h2 className="mt-6 text-3xl font-bold leading-tight text-slate-900">
               Sua garagem
               <span className="block neon-text">premium digital.</span>
             </h2>
-            <p className="mt-3 max-w-xs text-sm text-slate-400">
+            <p className="mt-3 max-w-xs text-sm text-slate-600">
               Acesse sua conta para salvar favoritos e acompanhar seus veículos de
               interesse.
             </p>
           </div>
           <ul className="relative mt-8 space-y-3">
             {perks.map((p) => (
-              <li key={p} className="flex items-center gap-2.5 text-sm text-slate-300">
+              <li key={p} className="flex items-center gap-2.5 text-sm text-slate-700">
                 <span className="grid h-6 w-6 place-items-center rounded-full bg-neon/15 text-neon">
                   <CheckIcon className="text-sm" />
                 </span>
@@ -94,23 +94,23 @@ export default function LoginPage() {
               animate={{ opacity: 1, y: 0 }}
               className="flex h-full flex-col justify-center"
             >
-              <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-neon to-electric text-xl font-bold text-ink-950">
+              <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-neon to-electric text-xl font-bold text-white">
                 {user.name.charAt(0).toUpperCase()}
               </span>
-              <h1 className="mt-5 text-2xl font-bold text-white">
+              <h1 className="mt-5 text-2xl font-bold text-slate-900">
                 Olá, {user.name.split(" ")[0]} 👋
               </h1>
-              <p className="mt-1 text-sm text-slate-400">{user.email}</p>
+              <p className="mt-1 text-sm text-slate-600">{user.email}</p>
 
               <div className="surface mt-6 flex items-center gap-3 p-4">
                 <span className="grid h-10 w-10 place-items-center rounded-lg bg-neon/10 text-neon">
                   <HeartIcon />
                 </span>
                 <div>
-                  <p className="text-sm font-semibold text-white">
+                  <p className="text-sm font-semibold text-slate-900">
                     {count} {count === 1 ? "favorito" : "favoritos"}
                   </p>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-slate-600">
                     salvos na sua seleção
                   </p>
                 </div>
@@ -134,8 +134,8 @@ export default function LoginPage() {
             </motion.div>
           ) : (
             <>
-              <h1 className="text-2xl font-bold text-white">Entrar</h1>
-              <p className="mt-1 text-sm text-slate-400">
+              <h1 className="text-2xl font-bold text-slate-900">Entrar</h1>
+              <p className="mt-1 text-sm text-slate-600">
                 Use qualquer e-mail válido e uma senha (mín. 4 caracteres).
               </p>
 
@@ -143,7 +143,7 @@ export default function LoginPage() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="mb-1.5 block text-xs font-medium text-slate-300"
+                    className="mb-1.5 block text-xs font-medium text-slate-700"
                   >
                     E-mail
                   </label>
@@ -160,7 +160,7 @@ export default function LoginPage() {
                 <div>
                   <label
                     htmlFor="password"
-                    className="mb-1.5 block text-xs font-medium text-slate-300"
+                    className="mb-1.5 block text-xs font-medium text-slate-700"
                   >
                     Senha
                   </label>
@@ -176,7 +176,7 @@ export default function LoginPage() {
                 </div>
 
                 {error && (
-                  <p className="rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 text-xs text-red-300">
+                  <p className="rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 text-xs text-red-600">
                     {error}
                   </p>
                 )}
@@ -205,7 +205,7 @@ export default function LoginPage() {
                   setEmail("cliente@horizon.com");
                   setPassword("horizon");
                 }}
-                className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-lg border border-dashed border-ink-400/60 bg-ink-700/30 py-2.5 text-xs text-slate-400 transition-colors hover:border-neon/40 hover:text-neon-soft"
+                className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-lg border border-dashed border-ink-400/60 bg-ink-700/30 py-2.5 text-xs text-slate-600 transition-colors hover:border-neon/40 hover:text-neon-soft"
               >
                 <BoltIcon /> Preencher credenciais de demonstração
               </button>

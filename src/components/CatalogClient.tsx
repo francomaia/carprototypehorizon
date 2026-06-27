@@ -109,10 +109,10 @@ export function CatalogClient() {
         <span className="text-xs font-semibold uppercase tracking-[0.2em] text-neon-soft">
           Catálogo
         </span>
-        <h2 className="text-2xl font-bold text-white sm:text-3xl">
+        <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
           Escolha por marca
         </h2>
-        <p className="max-w-2xl text-sm text-slate-400">
+        <p className="max-w-2xl text-sm text-slate-600">
           Navegue pelas montadoras, filtre por tipo e encontre o veículo ideal.
           Todos os valores e imagens são demonstrativos de protótipo.
         </p>

@@ -34,7 +34,7 @@ export function SearchBar({
           type="button"
           onClick={() => onChange("")}
           aria-label="Limpar busca"
-          className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1 text-slate-500 hover:bg-white/5 hover:text-white"
+          className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-1 text-slate-500 hover:bg-white/5 hover:text-slate-900"
         >
           <CloseIcon className="text-base" />
         </button>

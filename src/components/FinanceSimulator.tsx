@@ -24,7 +24,7 @@ export function FinanceSimulator({ price }: Props) {
         <div className="space-y-6">
           <div>
             <div className="mb-2 flex items-center justify-between">
-              <label htmlFor="entrada" className="text-sm text-slate-300">
+              <label htmlFor="entrada" className="text-sm text-slate-700">
                 Entrada
               </label>
               <span className="text-sm font-semibold text-neon-soft">
@@ -44,7 +44,7 @@ export function FinanceSimulator({ price }: Props) {
           </div>
 
           <div>
-            <p className="mb-2 text-sm text-slate-300">Prazo</p>
+            <p className="mb-2 text-sm text-slate-700">Prazo</p>
             <div className="flex flex-wrap gap-2">
               {TERMS.map((t) => (
                 <button
@@ -54,7 +54,7 @@ export function FinanceSimulator({ price }: Props) {
                   className={`rounded-xl border px-4 py-2 text-sm font-medium transition-colors ${
                     months === t
                       ? "border-neon/50 bg-neon/10 text-neon-soft"
-                      : "border-ink-500/70 text-slate-300 hover:border-ink-400"
+                      : "border-ink-500/70 text-slate-700 hover:border-ink-400"
                   }`}
                 >
                   {t}x
@@ -65,23 +65,23 @@ export function FinanceSimulator({ price }: Props) {
         </div>
 
         <div className="flex flex-col justify-center rounded-xl border border-neon/20 bg-gradient-to-br from-neon/10 to-electric/5 p-6">
-          <p className="text-xs uppercase tracking-wider text-slate-400">
+          <p className="text-xs uppercase tracking-wider text-slate-600">
             Parcela estimada
           </p>
-          <p className="mt-1 text-4xl font-bold text-white">
+          <p className="mt-1 text-4xl font-bold text-slate-900">
             {formatBRL(Math.round(result.installment))}
-            <span className="text-base font-medium text-slate-400">/mês</span>
+            <span className="text-base font-medium text-slate-600">/mês</span>
           </p>
-          <div className="mt-4 space-y-1.5 text-sm text-slate-400">
+          <div className="mt-4 space-y-1.5 text-sm text-slate-600">
             <div className="flex justify-between">
               <span>Valor financiado</span>
-              <span className="font-medium text-slate-200">
+              <span className="font-medium text-slate-800">
                 {formatBRL(Math.round(result.financed))}
               </span>
             </div>
             <div className="flex justify-between">
               <span>Total estimado</span>
-              <span className="font-medium text-slate-200">
+              <span className="font-medium text-slate-800">
                 {formatBRL(Math.round(result.total))}
               </span>
             </div>

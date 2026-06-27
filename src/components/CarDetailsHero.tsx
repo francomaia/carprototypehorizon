@@ -98,22 +98,22 @@ export function CarDetailsHero({ car }: Props) {
 
       {/* Informações */}
       <div className="flex flex-col">
-        <div className="flex items-center gap-2 text-sm text-slate-400">
+        <div className="flex items-center gap-2 text-sm text-slate-600">
           <span className="font-medium uppercase tracking-wider text-neon-soft">
             {car.brandName}
           </span>
-          <span className="text-slate-600">•</span>
+          <span className="text-slate-500">•</span>
           <span>{car.category}</span>
-          <span className="text-slate-600">•</span>
+          <span className="text-slate-500">•</span>
           <span>{car.year}</span>
         </div>
 
-        <h1 className="mt-2 text-3xl font-bold leading-tight text-white sm:text-4xl">
+        <h1 className="mt-2 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl">
           {car.model}
         </h1>
 
         <div className="mt-3 flex flex-wrap items-center gap-2">
-          <span className="rounded-md bg-white/5 px-2.5 py-1 text-xs font-semibold text-slate-200 ring-1 ring-white/10">
+          <span className="rounded-md bg-white/5 px-2.5 py-1 text-xs font-semibold text-slate-800 ring-1 ring-white/10">
             {car.highlight}
           </span>
           {car.featured && (
@@ -123,7 +123,7 @@ export function CarDetailsHero({ car }: Props) {
           )}
         </div>
 
-        <p className="mt-5 text-sm leading-relaxed text-slate-300">
+        <p className="mt-5 text-sm leading-relaxed text-slate-700">
           {car.summary}
         </p>
 
@@ -134,7 +134,7 @@ export function CarDetailsHero({ car }: Props) {
               <span className="mx-auto grid h-8 w-8 place-items-center rounded-lg bg-neon/10 text-base text-neon">
                 {s.icon}
               </span>
-              <p className="mt-2 text-sm font-bold text-white">{s.value}</p>
+              <p className="mt-2 text-sm font-bold text-slate-900">{s.value}</p>
               <p className="text-[10px] uppercase tracking-wider text-slate-500">
                 {s.label}
               </p>
@@ -148,14 +148,14 @@ export function CarDetailsHero({ car }: Props) {
             <p className="text-[11px] uppercase tracking-wider text-slate-500">
               Preço protótipo
             </p>
-            <p className="text-3xl font-bold text-white">
+            <p className="text-3xl font-bold text-slate-900">
               {formatBRL(car.price)}
             </p>
             <p className="text-[10px] text-slate-500">
               valor demonstrativo — sujeito a alteração
             </p>
           </div>
-          <span className="hidden text-right text-xs text-slate-400 sm:block">
+          <span className="hidden text-right text-xs text-slate-600 sm:block">
             ou a partir de
             <br />
             <strong className="text-neon-soft">

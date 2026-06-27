@@ -1,6 +1,14 @@
 import type { Metadata, Viewport } from "next";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans",
+  weight: ["400", "500", "600", "700", "800"],
+});
 import { Providers } from "@/components/Providers";
 import { AppShell } from "@/components/AppShell";
 import { TechBackground } from "@/components/TechBackground";
@@ -52,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang="pt-BR" className={manrope.variable} suppressHydrationWarning>
       <body className="min-h-screen font-sans">
         <Providers>
           <TechBackground />

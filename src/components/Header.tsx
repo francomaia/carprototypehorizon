@@ -81,7 +81,7 @@ export function Header() {
             priority
           />
           <span className="hidden flex-col leading-none sm:flex">
-            <span className="font-display text-base font-bold tracking-tight text-white">
+            <span className="font-display text-base font-bold tracking-tight text-slate-900">
               {site.name}
             </span>
             <span className="text-[10px] uppercase tracking-[0.2em] text-neon-soft/80">
@@ -104,8 +104,8 @@ export function Header() {
                 className={cn(
                   "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
                   isActive
-                    ? "text-white"
-                    : "text-slate-400 hover:text-white",
+                    ? "text-slate-900"
+                    : "text-slate-600 hover:text-slate-900",
                 )}
               >
                 {item.label}
@@ -135,7 +135,7 @@ export function Header() {
                     onChange={(e) => setTerm(e.target.value)}
                     onBlur={() => !term && setSearchOpen(false)}
                     placeholder="Buscar veículos…"
-                    className="w-full rounded-xl border border-ink-500/80 bg-ink-900/80 py-2 pl-9 pr-3 text-sm text-white placeholder:text-slate-500 focus:border-neon/60 focus:outline-none"
+                    className="w-full rounded-xl border border-ink-500/80 bg-ink-900/80 py-2 pl-9 pr-3 text-sm text-slate-900 placeholder:text-slate-500 focus:border-neon/60 focus:outline-none"
                   />
                 </motion.form>
               ) : (
@@ -144,7 +144,7 @@ export function Header() {
                   type="button"
                   onClick={() => setSearchOpen(true)}
                   aria-label="Abrir busca"
-                  className="grid h-10 w-10 place-items-center rounded-xl border border-ink-500/60 text-slate-300 transition-colors hover:border-neon/40 hover:text-white"
+                  className="grid h-10 w-10 place-items-center rounded-xl border border-ink-500/60 text-slate-700 transition-colors hover:border-neon/40 hover:text-slate-900"
                 >
                   <SearchIcon className="text-lg" />
                 </button>
@@ -156,11 +156,11 @@ export function Header() {
           <Link
             href="/favoritos"
             aria-label="Favoritos"
-            className="relative grid h-10 w-10 place-items-center rounded-xl border border-ink-500/60 text-slate-300 transition-colors hover:border-neon/40 hover:text-white"
+            className="relative grid h-10 w-10 place-items-center rounded-xl border border-ink-500/60 text-slate-700 transition-colors hover:border-neon/40 hover:text-slate-900"
           >
             <HeartIcon className="text-lg" />
             {count > 0 && (
-              <span className="absolute -right-1.5 -top-1.5 grid h-5 min-w-[20px] place-items-center rounded-full bg-neon px-1 text-[10px] font-bold text-ink-950">
+              <span className="absolute -right-1.5 -top-1.5 grid h-5 min-w-[20px] place-items-center rounded-full bg-neon px-1 text-[10px] font-bold text-white">
                 {count}
               </span>
             )}
@@ -172,15 +172,15 @@ export function Header() {
               <button
                 type="button"
                 onClick={() => setMenuOpen((v) => !v)}
-                className="flex items-center gap-2 rounded-xl border border-ink-500/60 py-1.5 pl-1.5 pr-2.5 text-sm font-medium text-white transition-colors hover:border-neon/40"
+                className="flex items-center gap-2 rounded-xl border border-ink-500/60 py-1.5 pl-1.5 pr-2.5 text-sm font-medium text-slate-900 transition-colors hover:border-neon/40"
               >
-                <span className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-neon to-electric text-xs font-bold text-ink-950">
+                <span className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-neon to-electric text-xs font-bold text-white">
                   {user.name.charAt(0).toUpperCase()}
                 </span>
                 <span className="max-w-[90px] truncate">
                   {user.name.split(" ")[0]}
                 </span>
-                <ChevronDownIcon className="text-sm text-slate-400" />
+                <ChevronDownIcon className="text-sm text-slate-600" />
               </button>
               <AnimatePresence>
                 {menuOpen && (
@@ -191,17 +191,17 @@ export function Header() {
                     className="absolute right-0 mt-2 w-52 overflow-hidden rounded-xl border border-ink-500/70 bg-ink-800/95 p-1.5 shadow-card backdrop-blur-xl"
                   >
                     <div className="px-3 py-2">
-                      <p className="truncate text-sm font-semibold text-white">
+                      <p className="truncate text-sm font-semibold text-slate-900">
                         {user.name}
                       </p>
-                      <p className="truncate text-xs text-slate-400">
+                      <p className="truncate text-xs text-slate-600">
                         {user.email}
                       </p>
                     </div>
                     <div className="my-1 h-px bg-ink-500/60" />
                     <Link
                       href="/favoritos"
-                      className="block rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-white/5"
+                      className="block rounded-lg px-3 py-2 text-sm text-slate-800 hover:bg-white/5"
                     >
                       Meus favoritos
                     </Link>
@@ -211,7 +211,7 @@ export function Header() {
                         logout();
                         setMenuOpen(false);
                       }}
-                      className="block w-full rounded-lg px-3 py-2 text-left text-sm text-red-300 hover:bg-red-500/10"
+                      className="block w-full rounded-lg px-3 py-2 text-left text-sm text-red-600 hover:bg-red-500/10"
                     >
                       Sair da conta
                     </button>
@@ -234,7 +234,7 @@ export function Header() {
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="Abrir menu"
-            className="grid h-10 w-10 place-items-center rounded-xl border border-ink-500/60 text-slate-200 lg:hidden"
+            className="grid h-10 w-10 place-items-center rounded-xl border border-ink-500/60 text-slate-800 lg:hidden"
           >
             {mobileOpen ? (
               <CloseIcon className="text-lg" />
@@ -268,7 +268,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-200 hover:bg-white/5"
+                  className="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-800 hover:bg-white/5"
                 >
                   {item.label}
                 </Link>

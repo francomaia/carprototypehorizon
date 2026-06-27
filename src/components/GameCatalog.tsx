@@ -10,11 +10,7 @@ import { cars } from "@/data/cars";
 import { brands } from "@/data/brands";
 import { site } from "@/lib/site";
 import { formatBRL, cn } from "@/lib/utils";
-import {
-  typeBarColor,
-  perfClassColor,
-  drivetrainShort,
-} from "@/lib/carStyle";
+import { typeBarColor, perfClassColor, drivetrainShort } from "@/lib/carStyle";
 import { useFavorites } from "@/context/FavoritesContext";
 import { useCompare } from "@/context/CompareContext";
 import { useAuth } from "@/context/AuthContext";
@@ -27,7 +23,6 @@ import {
   SlidersIcon,
   SortIcon,
   MenuIcon,
-  CloseIcon,
   CoinIcon,
   CrownIcon,
   BoltIcon,
@@ -141,11 +136,11 @@ export function GameCatalog() {
     const base = cars.filter(
       (c) => matchesTerm(c, term) && matchesFilter(c, filter),
     );
-    for (const b of brands) map[b.id] = base.filter((c) => c.brandId === b.id).length;
+    for (const b of brands)
+      map[b.id] = base.filter((c) => c.brandId === b.id).length;
     return map;
   }, [term, filter]);
 
-  // Mantém uma seleção válida sempre que a lista muda.
   useEffect(() => {
     if (visible.length === 0) {
       setSelectedId(null);
@@ -166,22 +161,25 @@ export function GameCatalog() {
     }
   };
 
-  const scrollTabs = (dir: number) => {
+  const scrollTabs = (dir: number) =>
     tabsRef.current?.scrollBy({ left: dir * 240, behavior: "smooth" });
-  };
 
   const activeBrandName =
-    brand === "all" ? "Todas as marcas" : brands.find((b) => b.id === brand)?.name;
+    brand === "all"
+      ? "Todas as marcas"
+      : brands.find((b) => b.id === brand)?.name;
+
+  const totalCount = cars.filter(
+    (c) => matchesTerm(c, term) && matchesFilter(c, filter),
+  ).length;
 
   return (
     <section id="catalogo" className="container-px py-4 sm:py-6">
-      <div className="relative flex min-h-[calc(100vh-2rem)] flex-col overflow-hidden rounded-2xl border border-ink-500/70 bg-ink-900/80 shadow-card backdrop-blur-sm">
-        {/* trilho/varredura tecnológica de fundo */}
-        <div className="pointer-events-none absolute inset-0 bg-tech-grid bg-[size:48px_48px] opacity-20 [mask-image:radial-gradient(ellipse_at_top,black,transparent_80%)]" />
+      <div className="relative flex min-h-[calc(100vh-2rem)] flex-col overflow-hidden rounded-2xl border border-ink-500 bg-white/85 shadow-card backdrop-blur-sm">
+        <div className="pointer-events-none absolute inset-0 bg-tech-grid bg-[size:48px_48px] opacity-50 [mask-image:radial-gradient(ellipse_at_top,black,transparent_85%)]" />
 
         {/* ===== HUD topo ===== */}
-        <div className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-ink-500/60 bg-ink-950/80 px-3 py-2.5 backdrop-blur-xl sm:px-4">
-          {/* esquerda: veículo selecionado */}
+        <div className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-ink-500 bg-white/85 px-3 py-2.5 backdrop-blur-xl sm:px-4">
           <div className="flex min-w-0 items-center gap-2.5">
             <Image
               src={site.logo}
@@ -194,26 +192,25 @@ export function GameCatalog() {
             {selected ? (
               <div className="flex min-w-0 items-center gap-2">
                 <ClassBadge cls={selected.perfClass} index={selected.perfIndex} />
-                <span className="truncate text-sm font-semibold text-white">
+                <span className="truncate text-sm font-bold text-slate-900">
                   {selected.brandName} {selected.model}
                 </span>
               </div>
             ) : (
-              <span className="text-sm font-semibold text-white">
+              <span className="text-sm font-bold text-slate-900">
                 {site.name}
               </span>
             )}
           </div>
 
-          {/* direita: status do "jogador" */}
           <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-            <span className="hidden items-center gap-1.5 rounded-md border border-ink-500/70 bg-ink-800/70 px-2 py-1 text-xs font-semibold text-slate-300 sm:inline-flex">
+            <span className="hidden items-center gap-1.5 rounded-md border border-ink-500 bg-white px-2 py-1 text-xs font-semibold text-slate-700 sm:inline-flex">
               <HeartIcon className="text-sm text-neon" filled={favCount > 0} />
               {favCount}
             </span>
             {user ? (
-              <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-white">
-                <CrownIcon className="text-base text-amber-300" />
+              <span className="inline-flex items-center gap-1.5 text-sm font-bold text-slate-900">
+                <CrownIcon className="text-base text-amber-500" />
                 <span className="max-w-[110px] truncate">
                   {user.name.split(" ")[0]}
                 </span>
@@ -222,25 +219,25 @@ export function GameCatalog() {
               <button
                 type="button"
                 onClick={openLogin}
-                className="inline-flex items-center gap-1.5 rounded-md border border-ink-500/70 bg-ink-800/70 px-2.5 py-1 text-sm font-semibold text-slate-200 transition-colors hover:border-neon/40 hover:text-white"
+                className="inline-flex items-center gap-1.5 rounded-md border border-ink-500 bg-white px-2.5 py-1 text-sm font-semibold text-slate-700 transition-colors hover:border-neon/40 hover:text-neon"
               >
-                <CrownIcon className="text-base text-amber-300" /> Entrar
+                <CrownIcon className="text-base text-amber-500" /> Entrar
               </button>
             )}
-            <span className="inline-flex items-center gap-1.5 rounded-md border border-amber-400/40 bg-amber-400/10 px-2.5 py-1 text-xs font-bold text-amber-300">
+            <span className="inline-flex items-center gap-1.5 rounded-md border border-amber-500/40 bg-amber-400/15 px-2.5 py-1 text-xs font-bold text-amber-700">
               <CoinIcon className="text-sm" /> CR 250.000
             </span>
           </div>
         </div>
 
         {/* ===== Título + abas ===== */}
-        <div className="relative z-20 border-b border-ink-500/60 px-3 pb-3 pt-3 sm:px-4">
+        <div className="relative z-20 border-b border-ink-500 px-3 pb-3 pt-3 sm:px-4">
           <div className="mb-3 flex items-end justify-between gap-2">
             <div>
-              <h1 className="text-base font-bold uppercase tracking-wide text-white sm:text-lg">
+              <h1 className="text-base font-extrabold uppercase tracking-wide text-slate-900 sm:text-lg">
                 Catálogo de Veículos
               </h1>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-neon-soft/80">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-neon">
                 Modo vitrine · {activeBrandName} · {visible.length}{" "}
                 {visible.length === 1 ? "modelo" : "modelos"}
               </p>
@@ -251,15 +248,14 @@ export function GameCatalog() {
               className={cn(
                 "inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1.5 text-xs font-semibold transition-colors",
                 searchOpen
-                  ? "border-neon/50 bg-neon/10 text-neon-soft"
-                  : "border-ink-500/70 text-slate-300 hover:border-neon/40 hover:text-white",
+                  ? "border-neon/50 bg-neon/10 text-neon"
+                  : "border-ink-500 bg-white text-slate-600 hover:border-neon/40 hover:text-neon",
               )}
             >
               <SearchIcon className="text-sm" /> Buscar
             </button>
           </div>
 
-          {/* busca */}
           <AnimatePresence initial={false}>
             {searchOpen && (
               <motion.div
@@ -269,7 +265,7 @@ export function GameCatalog() {
                 className="overflow-hidden"
               >
                 <div className="relative mb-3">
-                  <SearchIcon className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-base text-slate-500" />
+                  <SearchIcon className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-base text-slate-400" />
                   <input
                     autoFocus
                     value={term}
@@ -282,7 +278,6 @@ export function GameCatalog() {
             )}
           </AnimatePresence>
 
-          {/* abas de marca com bumpers LB/RB */}
           <div className="flex items-center gap-2">
             <Bumper label="LB" onClick={() => scrollTabs(-1)} />
             <div
@@ -293,7 +288,7 @@ export function GameCatalog() {
                 active={brand === "all"}
                 onClick={() => setBrand("all")}
                 label="TODAS"
-                count={cars.filter((c) => matchesTerm(c, term) && matchesFilter(c, filter)).length}
+                count={totalCount}
               />
               {brands.map((b) => (
                 <BrandTab
@@ -313,18 +308,19 @@ export function GameCatalog() {
 
         {/* ===== Corpo: painel + grade ===== */}
         <div className="relative z-10 grid flex-1 gap-3 p-3 sm:p-4 lg:grid-cols-[clamp(240px,22vw,300px)_1fr]">
-          {/* painel de detalhe (desktop) */}
           {selected && (
-            <DetailPanel key={selected.id} car={selected} className="hidden lg:flex" />
+            <DetailPanel
+              key={selected.id}
+              car={selected}
+              className="hidden lg:flex"
+            />
           )}
 
           <div className="min-w-0">
-            {/* barra de selecionado (mobile) */}
             {selected && (
               <MobileSelectedBar car={selected} className="mb-3 lg:hidden" />
             )}
 
-            {/* grade */}
             {visible.length === 0 ? (
               <EmptyState
                 brandName={brand === "all" ? undefined : activeBrandName}
@@ -356,9 +352,8 @@ export function GameCatalog() {
           </div>
         </div>
 
-        {/* ===== Barra de ações (rodapé do "game") ===== */}
-        <div className="sticky bottom-0 z-30 border-t border-ink-500/60 bg-ink-950/85 backdrop-blur-xl">
-          {/* popovers */}
+        {/* ===== Barra de ações ===== */}
+        <div className="sticky bottom-0 z-30 border-t border-ink-500 bg-white/90 backdrop-blur-xl">
           <AnimatePresence>
             {popover && (
               <>
@@ -372,7 +367,7 @@ export function GameCatalog() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  className="absolute bottom-full left-3 z-10 mb-2 w-60 rounded-xl border border-ink-500/70 bg-ink-800/95 p-2 shadow-card backdrop-blur-xl sm:left-4"
+                  className="absolute bottom-full left-3 z-10 mb-2 w-60 rounded-xl border border-ink-500 bg-white p-2 shadow-card sm:left-4"
                 >
                   {popover === "filter" && (
                     <PopList
@@ -404,7 +399,7 @@ export function GameCatalog() {
                   )}
                   {popover === "menu" && (
                     <div className="space-y-0.5">
-                      <p className="px-2 pb-1.5 pt-1 text-[10px] font-semibold uppercase tracking-wider text-slate-500">
+                      <p className="px-2 pb-1.5 pt-1 text-[10px] font-semibold uppercase tracking-wider text-slate-400">
                         Navegação
                       </p>
                       {[
@@ -419,7 +414,7 @@ export function GameCatalog() {
                         <Link
                           key={l.href}
                           href={l.href}
-                          className="block rounded-lg px-2.5 py-2 text-sm text-slate-200 hover:bg-white/5 hover:text-white"
+                          className="block rounded-lg px-2.5 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
                         >
                           {l.label}
                         </Link>
@@ -436,9 +431,7 @@ export function GameCatalog() {
               k="A"
               label="Detalhes"
               disabled={!selected}
-              onClick={() =>
-                selected && router.push(`/carros/${selected.slug}`)
-              }
+              onClick={() => selected && router.push(`/carros/${selected.slug}`)}
             />
             <ActionKey
               icon={<HeartIcon filled={!!selected && isFavorite(selected.id)} />}
@@ -500,7 +493,7 @@ export function GameCatalog() {
               onClick={() => setPopover(popover === "menu" ? null : "menu")}
             />
 
-            <span className="ml-auto select-none whitespace-nowrap pr-1 font-display text-xs font-bold uppercase tracking-[0.25em] text-slate-600 sm:text-sm">
+            <span className="ml-auto select-none whitespace-nowrap pr-1 font-display text-xs font-extrabold uppercase tracking-[0.25em] text-slate-300 sm:text-sm">
               Protótipo · Demo Build
             </span>
           </div>
@@ -514,14 +507,14 @@ export function GameCatalog() {
 
 function ClassBadge({ cls, index }: { cls: Car["perfClass"]; index: number }) {
   return (
-    <span className="inline-flex shrink-0 overflow-hidden rounded text-[11px] font-bold leading-none ring-1 ring-black/30">
+    <span className="inline-flex shrink-0 overflow-hidden rounded text-[11px] font-bold leading-none ring-1 ring-black/10">
       <span
-        className="px-1.5 py-1 text-ink-950"
+        className="px-1.5 py-1 text-white"
         style={{ background: perfClassColor(cls) }}
       >
         {cls}
       </span>
-      <span className="bg-ink-800 px-1.5 py-1 text-white">{index}</span>
+      <span className="bg-slate-900 px-1.5 py-1 text-white">{index}</span>
     </span>
   );
 }
@@ -532,7 +525,7 @@ function Bumper({ label, onClick }: { label: string; onClick: () => void }) {
       type="button"
       onClick={onClick}
       aria-label={`Rolar abas (${label})`}
-      className="hidden shrink-0 items-center gap-1 rounded-md border border-ink-500/70 bg-ink-800/70 px-2 py-2 text-[10px] font-bold text-slate-400 transition-colors hover:border-neon/40 hover:text-white sm:inline-flex"
+      className="hidden shrink-0 items-center gap-1 rounded-md border border-ink-500 bg-white px-2 py-2 text-[10px] font-bold text-slate-500 transition-colors hover:border-neon/40 hover:text-neon sm:inline-flex"
     >
       {label === "LB" ? (
         <ChevronLeftIcon className="text-sm" />
@@ -564,21 +557,15 @@ function BrandTab({
       type="button"
       onClick={onClick}
       className={cn(
-        "group relative flex shrink-0 items-center gap-2 rounded-md px-3 py-2 text-xs font-bold uppercase tracking-wide transition-colors",
+        "relative flex shrink-0 items-center gap-2 rounded-md px-3 py-2 text-xs font-bold uppercase tracking-wide transition-colors",
         active
-          ? "bg-white text-ink-950"
-          : "bg-ink-800/60 text-slate-400 hover:bg-ink-700/70 hover:text-white",
+          ? "bg-neon text-white shadow-glow"
+          : "bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-900",
       )}
     >
-      {active && (
-        <motion.span
-          layoutId="game-tab"
-          className="absolute inset-x-2 -top-px h-0.5 rounded-full bg-neon"
-        />
-      )}
       {monogram && (
         <span
-          className="grid h-4 w-4 shrink-0 place-items-center rounded-full text-[8px] font-bold text-white"
+          className="grid h-4 w-4 shrink-0 place-items-center rounded-full text-[8px] font-bold text-white ring-1 ring-black/10"
           style={{ background: accent }}
         >
           {monogram.charAt(0)}
@@ -588,7 +575,7 @@ function BrandTab({
       <span
         className={cn(
           "rounded px-1 text-[9px]",
-          active ? "bg-ink-900/10 text-ink-700" : "bg-black/30 text-slate-500",
+          active ? "bg-white/25 text-white" : "bg-white text-slate-400",
         )}
       >
         {count}
@@ -603,12 +590,11 @@ function DetailPanel({ car, className }: { car: Car; className?: string }) {
       initial={{ opacity: 0, x: -8 }}
       animate={{ opacity: 1, x: 0 }}
       className={cn(
-        "flex flex-col overflow-hidden rounded-xl border border-ink-500/70 bg-ink-800/70",
+        "flex flex-col overflow-hidden rounded-xl border border-ink-500 bg-white",
         className,
       )}
     >
-      {/* imagem + categoria */}
-      <div className="relative aspect-[16/11] w-full bg-gradient-to-b from-ink-700 to-ink-900">
+      <div className="relative aspect-[16/11] w-full bg-gradient-to-b from-slate-100 to-white">
         <Image
           src={car.image}
           alt={`${car.brandName} ${car.model}`}
@@ -616,39 +602,35 @@ function DetailPanel({ car, className }: { car: Car; className?: string }) {
           sizes="300px"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink-900/80 to-transparent" />
         <div className="absolute left-2 top-2">
-          <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-neon-soft">
+          <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-neon">
             Coleção
           </p>
-          <p className="font-display text-sm font-extrabold uppercase leading-none text-white">
+          <span className="mt-0.5 inline-block rounded bg-white/85 px-1.5 py-0.5 font-display text-xs font-extrabold uppercase leading-none text-slate-900 backdrop-blur-sm">
             {car.category}
-          </p>
+          </span>
         </div>
-        {/* dots da galeria */}
         <div className="absolute bottom-2 left-2 flex gap-1">
           {car.gallery.slice(0, 3).map((_, i) => (
             <span
               key={i}
               className={cn(
                 "h-1.5 w-1.5 rounded-full",
-                i === 0 ? "bg-neon" : "bg-white/30",
+                i === 0 ? "bg-neon" : "bg-slate-300",
               )}
             />
           ))}
         </div>
       </div>
 
-      {/* faixa de tipo */}
       <div
-        className="px-3 py-1.5 text-center text-[11px] font-bold uppercase tracking-[0.2em] text-ink-950"
+        className="px-3 py-1.5 text-center text-[11px] font-bold uppercase tracking-[0.2em] text-white"
         style={{ background: typeBarColor(car.type) }}
       >
         {car.type}
       </div>
 
-      {/* stats */}
-      <div className="divide-y divide-ink-500/50">
+      <div className="divide-y divide-ink-500">
         <StatRow icon={<BoltIcon />} label="Potência" value={car.specs.potencia} />
         <StatRow icon={<GaugeIcon />} label="Torque" value={car.specs.torque} />
         <StatRow
@@ -659,40 +641,39 @@ function DetailPanel({ car, className }: { car: Car; className?: string }) {
         <StatRow icon={<WeightIcon />} label="Peso" value={car.specs.peso} />
       </div>
 
-      {/* marca / logo */}
-      <div className="flex items-center justify-center border-y border-ink-500/50 bg-ink-900/60 py-3">
+      <div className="flex items-center justify-center border-y border-ink-500 bg-slate-50 py-3">
         <Image
           src={site.logo}
           alt={site.name}
           width={120}
           height={28}
-          className="h-7 w-auto object-contain opacity-90"
+          className="h-7 w-auto object-contain"
         />
       </div>
 
-      {/* classe + tração */}
       <div className="flex items-center justify-between gap-2 px-3 py-2.5">
         <ClassBadge cls={car.perfClass} index={car.perfIndex} />
-        <span className="inline-flex items-center gap-1.5 rounded-md border border-ink-500/70 bg-ink-700/60 px-2.5 py-1 text-xs font-bold text-slate-200">
+        <span className="inline-flex items-center gap-1.5 rounded-md border border-ink-500 bg-white px-2.5 py-1 text-xs font-bold text-slate-700">
           <GaugeIcon className="text-sm text-slate-400" />
           {drivetrainShort(car.specs.tracao)}
         </span>
       </div>
 
-      {/* preço */}
-      <div className="flex items-center justify-between gap-2 bg-amber-400/90 px-3 py-2.5">
-        <span className="inline-flex items-center gap-1.5 text-base font-extrabold text-ink-950">
+      <div className="flex items-center justify-between gap-2 bg-amber-400 px-3 py-2.5">
+        <span className="inline-flex items-center gap-1.5 text-base font-extrabold text-slate-900">
           <CoinIcon className="text-base" />
           {formatBRL(car.price)}
         </span>
-        <span className="text-[9px] font-bold uppercase tracking-wider text-ink-950/70">
+        <span className="text-[9px] font-bold uppercase tracking-wider text-slate-900/60">
           protótipo
         </span>
       </div>
 
-      {/* ações */}
       <div className="mt-auto flex flex-col gap-2 p-3">
-        <Link href={`/carros/${car.slug}`} className="btn-primary w-full py-2.5 text-sm">
+        <Link
+          href={`/carros/${car.slug}`}
+          className="btn-primary w-full py-2.5 text-sm"
+        >
           Ver detalhes <ArrowRightIcon />
         </Link>
       </div>
@@ -711,11 +692,11 @@ function StatRow({
 }) {
   return (
     <div className="flex items-center justify-between gap-2 px-3 py-2">
-      <span className="inline-flex items-center gap-2 text-xs text-slate-400">
-        <span className="text-sm text-neon/80">{icon}</span>
+      <span className="inline-flex items-center gap-2 text-xs text-slate-500">
+        <span className="text-sm text-neon">{icon}</span>
         {label}
       </span>
-      <span className="text-right text-xs font-bold text-white">{value}</span>
+      <span className="text-right text-xs font-bold text-slate-900">{value}</span>
     </div>
   );
 }
@@ -724,20 +705,26 @@ function MobileSelectedBar({ car, className }: { car: Car; className?: string })
   return (
     <div
       className={cn(
-        "flex items-center gap-3 rounded-xl border border-ink-500/70 bg-ink-800/70 p-2",
+        "flex items-center gap-3 rounded-xl border border-ink-500 bg-white p-2 shadow-card",
         className,
       )}
     >
-      <span className="relative h-12 w-16 shrink-0 overflow-hidden rounded-md border border-ink-500 bg-ink-700">
-        <Image src={car.image} alt={car.model} fill sizes="64px" className="object-cover" />
+      <span className="relative h-12 w-16 shrink-0 overflow-hidden rounded-md border border-ink-500 bg-slate-100">
+        <Image
+          src={car.image}
+          alt={car.model}
+          fill
+          sizes="64px"
+          className="object-cover"
+        />
       </span>
       <div className="min-w-0 flex-1">
-        <p className="truncate text-sm font-bold text-white">
+        <p className="truncate text-sm font-bold text-slate-900">
           {car.brandName} {car.model}
         </p>
         <div className="mt-0.5 flex items-center gap-2">
           <ClassBadge cls={car.perfClass} index={car.perfIndex} />
-          <span className="text-xs font-bold text-amber-300">
+          <span className="text-xs font-bold text-amber-600">
             {formatBRL(car.price)}
           </span>
         </div>
@@ -777,24 +764,22 @@ function GameCard({
       onFocus={onHover}
       onClick={onActivate}
       className={cn(
-        "group relative flex flex-col overflow-hidden rounded-lg border bg-ink-800/70 text-left transition-all duration-200",
+        "group relative flex flex-col overflow-hidden rounded-lg border bg-white text-left transition-all duration-200",
         selected
-          ? "border-neon ring-2 ring-neon/40"
-          : "border-ink-500/60 hover:border-ink-400",
+          ? "border-neon ring-2 ring-neon/30 shadow-glow"
+          : "border-ink-500 hover:border-ink-400 hover:shadow-card",
       )}
     >
-      {/* cabeçalho */}
       <div className="px-2.5 pb-1 pt-2">
-        <p className="truncate font-display text-[13px] font-extrabold uppercase leading-tight text-white">
+        <p className="truncate font-display text-[13px] font-extrabold uppercase leading-tight text-slate-900">
           {car.model}
         </p>
-        <p className="truncate text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+        <p className="truncate text-[10px] font-semibold uppercase tracking-wide text-slate-400">
           {car.year} {car.brandName}
         </p>
       </div>
 
-      {/* imagem */}
-      <div className="relative aspect-[16/10] w-full bg-gradient-to-b from-ink-700/60 to-ink-900">
+      <div className="relative aspect-[16/10] w-full bg-gradient-to-b from-slate-100 to-white">
         <Image
           src={car.image}
           alt={`${car.brandName} ${car.model}`}
@@ -802,33 +787,31 @@ function GameCard({
           sizes="(max-width:640px) 50vw, (max-width:1280px) 33vw, 25vw"
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
-        {/* destaque/ver */}
         <span
           className={cn(
-            "absolute right-1.5 top-1.5 rounded-md bg-black/60 px-1.5 py-0.5 text-[9px] font-bold uppercase text-white opacity-0 backdrop-blur-sm transition-opacity",
-            selected ? "opacity-100" : "group-hover:opacity-100",
+            "absolute right-1.5 top-1.5 rounded-md bg-slate-900/70 px-1.5 py-0.5 text-[9px] font-bold uppercase text-white backdrop-blur-sm transition-opacity",
+            selected ? "opacity-100" : "opacity-0 group-hover:opacity-100",
           )}
         >
           {selected ? "Abrir ›" : "Ver"}
         </span>
       </div>
 
-      {/* barra de tipo + índice */}
       <div className="relative flex items-center">
         <div
-          className="flex-1 px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider text-ink-950"
+          className="flex-1 px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white"
           style={{ background: typeBarColor(car.type) }}
         >
           {car.type}
         </div>
         <span className="flex shrink-0 overflow-hidden text-[10px] font-bold leading-none">
           <span
-            className="px-1.5 py-1.5 text-ink-950"
+            className="px-1.5 py-1.5 text-white"
             style={{ background: perfClassColor(car.perfClass) }}
           >
             {car.perfClass}
           </span>
-          <span className="bg-ink-900 px-1.5 py-1.5 text-white">
+          <span className="bg-slate-900 px-1.5 py-1.5 text-white">
             {car.perfIndex}
           </span>
         </span>
@@ -861,18 +844,20 @@ function ActionKey({
       disabled={disabled}
       className={cn(
         "relative inline-flex shrink-0 items-center gap-1.5 rounded-md px-2 py-1.5 text-xs font-semibold transition-colors disabled:opacity-40",
-        active ? "bg-neon/10 text-neon-soft" : "text-slate-300 hover:bg-white/5 hover:text-white",
+        active
+          ? "bg-neon/10 text-neon"
+          : "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
       )}
     >
       {k && (
-        <span className="grid h-5 w-5 place-items-center rounded-full border border-ink-400/80 bg-ink-700/80 text-[10px] font-bold text-white">
+        <span className="grid h-5 w-5 place-items-center rounded-full border border-ink-400 bg-slate-100 text-[10px] font-bold text-slate-700">
           {k}
         </span>
       )}
       {icon && <span className="text-sm">{icon}</span>}
       <span className="whitespace-nowrap">{label}</span>
       {badge && (
-        <span className="ml-0.5 rounded bg-neon/20 px-1 text-[9px] font-bold text-neon-soft">
+        <span className="ml-0.5 rounded bg-neon/15 px-1 text-[9px] font-bold text-neon">
           {badge}
         </span>
       )}
@@ -889,7 +874,7 @@ function PopList({
 }) {
   return (
     <div className="space-y-0.5">
-      <p className="px-2 pb-1.5 pt-1 text-[10px] font-semibold uppercase tracking-wider text-slate-500">
+      <p className="px-2 pb-1.5 pt-1 text-[10px] font-semibold uppercase tracking-wider text-slate-400">
         {title}
       </p>
       {items.map((it) => (
@@ -900,8 +885,8 @@ function PopList({
           className={cn(
             "flex w-full items-center justify-between rounded-lg px-2.5 py-2 text-sm transition-colors",
             it.active
-              ? "bg-neon/10 text-neon-soft"
-              : "text-slate-200 hover:bg-white/5 hover:text-white",
+              ? "bg-neon/10 text-neon"
+              : "text-slate-700 hover:bg-slate-100 hover:text-slate-900",
           )}
         >
           {it.label}
@@ -920,15 +905,17 @@ function EmptyState({
   onReset: () => void;
 }) {
   return (
-    <div className="flex h-full min-h-[320px] flex-col items-center justify-center gap-4 rounded-xl border border-dashed border-ink-500/70 bg-ink-800/40 px-6 text-center">
+    <div className="flex h-full min-h-[320px] flex-col items-center justify-center gap-4 rounded-xl border border-dashed border-ink-400 bg-slate-50 px-6 text-center">
       <span className="grid h-14 w-14 place-items-center rounded-full border border-neon/30 bg-neon/10 text-2xl text-neon">
         <BoltIcon />
       </span>
       <div>
-        <h3 className="text-lg font-bold text-white">
-          {brandName ? `Nenhum ${brandName} disponível` : "Nenhum veículo encontrado"}
+        <h3 className="text-lg font-bold text-slate-900">
+          {brandName
+            ? `Nenhum ${brandName} disponível`
+            : "Nenhum veículo encontrado"}
         </h3>
-        <p className="mx-auto mt-1 max-w-sm text-sm text-slate-400">
+        <p className="mx-auto mt-1 max-w-sm text-sm text-slate-500">
           {brandName
             ? "Novos modelos desta marca chegam em breve."
             : "Ajuste a busca ou os filtros para ver mais opções."}

@@ -60,15 +60,15 @@ export default function CarDetailPage({
     <div className="container-px py-8 lg:py-12">
       {/* breadcrumb */}
       <nav className="mb-6 flex items-center gap-1.5 text-xs text-slate-500">
-        <Link href="/" className="hover:text-white">
+        <Link href="/" className="hover:text-slate-900">
           Catálogo
         </Link>
         <span>/</span>
-        <Link href={`/?q=${car.brandName}#catalogo`} className="hover:text-white">
+        <Link href={`/?q=${car.brandName}#catalogo`} className="hover:text-slate-900">
           {car.brandName}
         </Link>
         <span>/</span>
-        <span className="text-slate-300">{car.model}</span>
+        <span className="text-slate-700">{car.model}</span>
       </nav>
 
       <CarDetailsHero car={car} />
@@ -118,10 +118,10 @@ export default function CarDetailPage({
 
       {/* CTA */}
       <div className="mt-12 overflow-hidden rounded-2xl border border-neon/20 bg-gradient-to-r from-ink-800 via-ink-800 to-ink-700 p-8 text-center sm:p-10">
-        <h3 className="text-2xl font-bold text-white">
+        <h3 className="text-2xl font-bold text-slate-900">
           Pronto para conhecer de perto o {car.model}?
         </h3>
-        <p className="mx-auto mt-2 max-w-xl text-sm text-slate-400">
+        <p className="mx-auto mt-2 max-w-xl text-sm text-slate-600">
           Registre seu interesse e nossa curadoria entra em contato com condições
           personalizadas e disponibilidade.
         </p>
@@ -169,11 +169,11 @@ function Section({
         <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-neon-soft">
           {icon} {eyebrow}
         </span>
-        <h2 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
+        <h2 className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">
           {title}
         </h2>
         {description && (
-          <p className="mt-2 max-w-2xl text-sm text-slate-400">{description}</p>
+          <p className="mt-2 max-w-2xl text-sm text-slate-600">{description}</p>
         )}
       </div>
       {children}
@@ -194,7 +194,7 @@ function FeatureCard({
 }) {
   return (
     <div className="surface p-6">
-      <h3 className="flex items-center gap-2 text-lg font-semibold text-white">
+      <h3 className="flex items-center gap-2 text-lg font-semibold text-slate-900">
         <span
           className={`grid h-9 w-9 place-items-center rounded-lg text-lg ${
             accent === "neon"
@@ -208,7 +208,7 @@ function FeatureCard({
       </h3>
       <ul className="mt-4 space-y-3">
         {items.map((item) => (
-          <li key={item} className="flex items-start gap-2.5 text-sm text-slate-300">
+          <li key={item} className="flex items-start gap-2.5 text-sm text-slate-700">
             <CheckIcon
               className={`mt-0.5 shrink-0 text-base ${
                 accent === "neon" ? "text-neon" : "text-electric"

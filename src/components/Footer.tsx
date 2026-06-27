@@ -42,16 +42,16 @@ export function Footer() {
               height={40}
               className="h-10 w-10 rounded-lg object-contain"
             />
-            <span className="font-display text-lg font-bold text-white">
+            <span className="font-display text-lg font-bold text-slate-900">
               {site.name}
             </span>
           </Link>
-          <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-400">
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-600">
             Curadoria automotiva premium em veículos elétricos, híbridos e de
             performance. Plataforma demonstrativa — valores, imagens e textos são
             protótipos.
           </p>
-          <ul className="mt-5 space-y-2 text-sm text-slate-400">
+          <ul className="mt-5 space-y-2 text-sm text-slate-600">
             <li className="flex items-center gap-2">
               <MailIcon className="text-base text-neon" /> {site.contact.email}
             </li>
@@ -67,7 +67,7 @@ export function Footer() {
 
         {COLS.map((col) => (
           <div key={col.title}>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-white">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-900">
               {col.title}
             </h4>
             <ul className="mt-4 space-y-2.5">
@@ -75,7 +75,7 @@ export function Footer() {
                 <li key={l.href + l.label}>
                   <Link
                     href={l.href}
-                    className="text-sm text-slate-400 transition-colors hover:text-neon-soft"
+                    className="text-sm text-slate-600 transition-colors hover:text-neon-soft"
                   >
                     {l.label}
                   </Link>

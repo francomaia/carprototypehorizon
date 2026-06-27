@@ -18,10 +18,10 @@ export default function FavoritesPage() {
         <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-neon-soft">
           <HeartIcon filled /> Sua seleção
         </span>
-        <h1 className="text-3xl font-bold text-white sm:text-4xl">
+        <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl">
           Meus favoritos
         </h1>
-        <p className="max-w-2xl text-sm text-slate-400">
+        <p className="max-w-2xl text-sm text-slate-600">
           Os veículos que você salvou ficam guardados neste navegador. Compare,
           revise a ficha técnica e avance quando estiver pronto.
         </p>
@@ -39,10 +39,10 @@ export default function FavoritesPage() {
             <HeartIcon />
           </span>
           <div>
-            <h2 className="text-xl font-semibold text-white">
+            <h2 className="text-xl font-semibold text-slate-900">
               Você ainda não favoritou nenhum veículo
             </h2>
-            <p className="mx-auto mt-2 max-w-md text-sm text-slate-400">
+            <p className="mx-auto mt-2 max-w-md text-sm text-slate-600">
               Toque no coração nos cards do catálogo para montar sua lista de
               desejos. Ela fica salva automaticamente.
             </p>
@@ -53,7 +53,7 @@ export default function FavoritesPage() {
         </motion.div>
       ) : (
         <>
-          <p className="mb-5 text-sm text-slate-400">
+          <p className="mb-5 text-sm text-slate-600">
             {favCars.length}{" "}
             {favCars.length === 1 ? "veículo salvo" : "veículos salvos"}
           </p>
