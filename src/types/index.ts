@@ -4,6 +4,9 @@
 
 export type CarType = "Elétrico" | "Híbrido" | "Performance";
 
+/** Classe de desempenho estilo "game" (S = topo, depois A, B, C, D). */
+export type PerfClass = "S" | "A" | "B" | "C" | "D";
+
 export type CarCategory =
   | "SUV Elétrico"
   | "SUV Premium"
@@ -40,6 +43,10 @@ export interface Car {
   price: number;
   /** Tag de destaque exibida no card (Luxury, XPower, Max, Performance...). */
   highlight: string;
+  /** Classe de desempenho (estilo game) exibida no selo do card/painel. */
+  perfClass: PerfClass;
+  /** Índice de performance (número, estilo game). */
+  perfIndex: number;
   featured?: boolean;
   image: string;
   gallery: string[];

@@ -170,3 +170,44 @@ export const TrunkIcon = (p: IconProps) => (
     <path d="M4 14h16M9 14v5M15 14v5" />
   </svg>
 );
+
+export const CoinIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 7v10M9.5 9.2a2.4 2.4 0 0 1 2.5-1.2c1.3 0 2.3.8 2.3 1.8 0 2.3-4.6 1.4-4.6 3.6 0 1 1 1.8 2.3 1.8a2.4 2.4 0 0 0 2.5-1.2" />
+  </svg>
+);
+
+export const CrownIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="M3 7l4 4 5-6 5 6 4-4-2 12H5L3 7Z" />
+    <path d="M5 19h14" />
+  </svg>
+);
+
+export const SortIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="M7 4v16M7 20l-3-3M7 4l3 3M17 20V4M17 4l3 3M17 20l-3-3" />
+  </svg>
+);
+
+export const GridIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <rect x="3" y="3" width="7" height="7" rx="1.2" />
+    <rect x="14" y="3" width="7" height="7" rx="1.2" />
+    <rect x="3" y="14" width="7" height="7" rx="1.2" />
+    <rect x="14" y="14" width="7" height="7" rx="1.2" />
+  </svg>
+);
+
+export const ChevronLeftIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="m15 6-6 6 6 6" />
+  </svg>
+);
+
+export const ChevronRightIcon = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="m9 6 6 6-6 6" />
+  </svg>
+);

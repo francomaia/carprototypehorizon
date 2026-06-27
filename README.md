@@ -40,7 +40,7 @@ Requisitos: Node.js 18.18+ (recomendado 20+).
 src/
 ├── app/                      # Rotas (App Router)
 │   ├── layout.tsx            # Layout raiz + metadata/SEO + providers
-│   ├── page.tsx              # Home / Catálogo
+│   ├── page.tsx              # Home = tela de catálogo estilo "game" (GameCatalog)
 │   ├── carros/[slug]/        # Página de detalhes (rota dinâmica)
 │   ├── favoritos/            # Lista de favoritos
 │   ├── login/                # Página de login (full-page)
@@ -52,6 +52,8 @@ src/
 │   ├── sitemap.ts / robots.ts
 │   └── not-found.tsx
 ├── components/               # Componentes reutilizáveis
+│   ├── GameCatalog           # ★ tela de catálogo estilo game (home)
+│   ├── AppShell              # mostra Header/Footer só fora da home
 │   ├── Header, Footer, Hero
 │   ├── BrandTabs, CarCard, CarGrid, CatalogClient
 │   ├── CarDetailsHero, SpecTable, FinanceSimulator
@@ -67,9 +69,15 @@ src/
 
 ## ✅ Funcionalidades
 
-- **Catálogo** com grade responsiva (1 col mobile, 2 tablet, 3–4 desktop).
-- **Abas por marca** com scroll horizontal no mobile e contador por marca.
-- **Busca** por nome, marca ou tipo (também via barra do header → `?q=`).
+- **Home = tela de catálogo estilo game** (inspirada em telas de seleção de
+  carros): HUD no topo, abas de marca com bumpers LB/RB, **painel de detalhe à
+  esquerda**, grade de cards com barra de tipo + índice de performance, seleção
+  destacada e **barra de ações inferior** (Detalhes / Favoritar / Comparar /
+  Ordenar / Filtrar / Menu) no lugar do rodapé. As páginas internas mantêm o
+  Header/Footer normais.
+- **Catálogo** com grade responsiva (2 col mobile, 3 tablet, 4 desktop).
+- **Abas por marca** com scroll horizontal e contador por marca.
+- **Busca** por nome, marca ou tipo (também via `?q=`).
 - **Filtros** por tipo (Elétrico, Híbrido, Performance, SUV, Premium) e
   **ordenação** por preço/nome/destaque.
 - **Favoritos** persistidos em `localStorage` (card, detalhes e página dedicada).

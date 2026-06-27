@@ -2,8 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { site } from "@/lib/site";
 import { Providers } from "@/components/Providers";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { AppShell } from "@/components/AppShell";
 import { TechBackground } from "@/components/TechBackground";
 import { LoginModal } from "@/components/LoginModal";
 import { CompareBar } from "@/components/CompareBar";
@@ -57,9 +56,7 @@ export default function RootLayout({
       <body className="min-h-screen font-sans">
         <Providers>
           <TechBackground />
-          <Header />
-          <main className="relative">{children}</main>
-          <Footer />
+          <AppShell>{children}</AppShell>
           <LoginModal />
           <CompareBar />
         </Providers>
